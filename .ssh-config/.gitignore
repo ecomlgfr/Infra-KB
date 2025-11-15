@@ -1,0 +1,17 @@
+# Ignorer les fichiers de credentials réels
+ssh_credentials.json
+
+# Ignorer les clés SSH
+*.pem
+*.key
+id_rsa
+id_ed25519
+*.pub
+
+# Ignorer les fichiers de log
+*.log
+
+# Ignorer les fichiers temporaires
+*.tmp
+*.swp
+*~

@@ -1,0 +1,80 @@
+{
+  "servers": {
+    "k3s-master-01": {
+      "hostname": "k3s-master-01",
+      "ip_public": "91.98.124.228",
+      "ip_wireguard": "10.0.0.100",
+      "fqdn": "master1.keybuzz.io",
+      "user": "root",
+      "group": "k3s-masters",
+      "description": "K3s Master Node 1"
+    },
+    "k3s-master-02": {
+      "hostname": "k3s-master-02",
+      "ip_public": "91.98.117.26",
+      "ip_wireguard": "10.0.0.101",
+      "fqdn": "master2.keybuzz.io",
+      "user": "root",
+      "group": "k3s-masters",
+      "description": "K3s Master Node 2"
+    },
+    "k3s-master-03": {
+      "hostname": "k3s-master-03",
+      "ip_public": "91.98.165.238",
+      "ip_wireguard": "10.0.0.102",
+      "fqdn": "master3.keybuzz.io",
+      "user": "root",
+      "group": "k3s-masters",
+      "description": "K3s Master Node 3"
+    },
+    "db-master-01": {
+      "hostname": "db-master-01",
+      "ip_public": "195.201.122.106",
+      "ip_wireguard": "10.0.0.120",
+      "fqdn": "db-master.keybuzz.io",
+      "user": "root",
+      "group": "db-pool",
+      "description": "Database Master Node"
+    },
+    "haproxy-01": {
+      "hostname": "haproxy-01",
+      "ip_public": "159.69.159.32",
+      "ip_wireguard": "10.0.0.11",
+      "fqdn": "haproxy1.keybuzz.io",
+      "user": "root",
+      "group": "haproxy-pool",
+      "description": "HAProxy Load Balancer 1"
+    },
+    "install-01": {
+      "hostname": "install-01",
+      "ip_public": "91.98.128.153",
+      "ip_wireguard": "10.0.0.20",
+      "fqdn": "install-01.keybuzz.io",
+      "user": "root",
+      "group": "management",
+      "description": "Installation and Management Server"
+    }
+  },
+  "groups": {
+    "k3s-masters": {
+      "description": "K3s Master Nodes",
+      "servers": ["k3s-master-01", "k3s-master-02", "k3s-master-03"]
+    },
+    "k3s-workers": {
+      "description": "K3s Worker Nodes",
+      "servers": ["k3s-worker-01", "k3s-worker-02", "k3s-worker-03", "k3s-worker-04", "k3s-worker-05"]
+    },
+    "db-pool": {
+      "description": "Database Pool",
+      "servers": ["db-master-01", "db-slave-01", "db-slave-02"]
+    },
+    "haproxy-pool": {
+      "description": "HAProxy Load Balancers",
+      "servers": ["haproxy-01", "haproxy-02"]
+    },
+    "management": {
+      "description": "Management Servers",
+      "servers": ["install-01"]
+    }
+  }
+}
